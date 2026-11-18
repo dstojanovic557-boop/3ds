@@ -12,10 +12,11 @@ const W = [
   { t: 'Mala kuhinja, puno svetla', k: 'Kuhinja', f: 'k_small' },
   { t: 'Dvorište sa pergolom', k: 'Dvorište', f: 'garden' }
 ];
-const src = f => `assets/v3/${f}.jpg`;
+const src = f => `assets/v3/${f}-1600.webp`;
+const srcset = f => `assets/v3/${f}-800.webp 800w, assets/v3/${f}-1600.webp 1600w`;
 $('#works').innerHTML = W.map((w, i) => `
   <button class="work ${w.w ? 'wide' : ''} rv" data-i="${i}" aria-label="Uvećaj: ${w.t}">
-    <div class="ph"><img src="${src(w.f)}" alt="${w.t}" loading="lazy" decoding="async"></div>
+    <div class="ph"><img src="${src(w.f)}" srcset="${srcset(w.f)}" sizes="(max-width:700px) 100vw, ${w.w ? 100 : 50}vw" alt="${w.t}" loading="lazy" decoding="async"></div>
     <div class="cap2"><div><small>${w.k}</small><h3>${w.t}</h3></div><span class="plus"><svg><use href="#lu_arrow-right"/></svg></span></div>
   </button>`).join('');
 

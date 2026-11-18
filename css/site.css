@@ -273,3 +273,9 @@ h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.02;text-wrap:balan
 .mat-mini figcaption{margin-top:10px;font-size:17px;color:var(--mut)}
 .mat-mini b{display:block;font-size:20px;color:var(--ink);font-weight:700}
 @media (max-width:900px){.mat-note{grid-template-columns:1fr}}
+
+/* 3D: slika dok se model učitava + traka napretka */
+.v-load{background:#e9e4dc url(../assets/v4/model-poster.webp) center/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:90px;gap:12px}
+.v-load span{background:rgba(21,18,15,.8);color:#fff;font-size:17px;font-weight:600;padding:8px 16px;border-radius:10px}
+.v-load i{display:block;width:min(320px,70%);height:6px;border-radius:6px;background:rgba(21,18,15,.25);overflow:hidden}
+.v-load b{display:block;height:100%;width:3%;background:var(--acc);border-radius:6px;transition:width .3s}

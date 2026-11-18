@@ -11,8 +11,10 @@
 <link rel="icon" href="assets/logo/3DS-logo-tamni-znak.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/v3/hero.jpg">
-<link rel="stylesheet" href="css/site.css?v=80">
+<link rel="preload" as="image" href="assets/v3/hero-1600.webp" imagesrcset="assets/v3/hero-800.webp 800w, assets/v3/hero-1600.webp 1600w" imagesizes="100vw">
+<link rel="preload" as="fetch" href="assets/model/vikendica-lite.glb" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js">
+<link rel="stylesheet" href="css/site.css?v=90">
 </head>
 <body>
 
@@ -42,7 +44,7 @@
 <main>
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"><img src="assets/v3/hero.jpg" alt="3D prikaz kuhinje i trpezarije u popodnevnom svetlu"></div>
+    <div class="hero-bg"><img fetchpriority="high" src="assets/v3/hero-1600.webp" srcset="assets/v3/hero-800.webp 800w, assets/v3/hero-1600.webp 1600w" sizes="100vw" decoding="async" alt="3D prikaz kuhinje i trpezarije u popodnevnom svetlu"></div>
     <div class="hero-shade"></div>
     <span class="logo on-dark"><svg><use href="#mark"/></svg><b>3DS</b></span>
     <div class="hero-in">
@@ -75,21 +77,21 @@
           <div class="viewer" id="viewer">
             <canvas id="c3d"></canvas>
             <button class="v-start" id="v-start"><svg><use href="#lu_box"/></svg>Klikni i okreći</button>
-            <div class="v-load" id="v-load">Učitavam 3D model…</div>
+            <div class="v-load" id="v-load"><span>Učitavam 3D model</span><i><b id="v-bar"></b></i></div>
             <div class="v-btns"><button data-v="air" class="on">Iz vazduha</button><button data-v="garden">Bašta</button><button data-v="terrace">Terasa</button><button data-v="inside">Unutra</button></div>
           </div>
         </div>
         <div class="panel" id="p-crtez">
           <div class="compare" id="compare">
-            <img src="assets/v2/par_3d.jpg" alt="3D model terase">
-            <div class="cmp-top"><img src="assets/v2/par_crtez.jpg" alt="Crtež terase"></div>
+            <img src="assets/v2/par_3d-1600.webp" srcset="assets/v2/par_3d-800.webp 800w, assets/v2/par_3d-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="3D model terase">
+            <div class="cmp-top"><img src="assets/v2/par_crtez-1600.webp" srcset="assets/v2/par_crtez-800.webp 800w, assets/v2/par_crtez-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="Crtež terase"></div>
             <span class="cmp-tag l">Crtež</span><span class="cmp-tag r">3D</span>
             <div class="cmp-line"><span class="cmp-knob"><svg><use href="#lu_move-horizontal"/></svg></span></div>
             <input type="range" min="0" max="100" value="50" aria-label="Pomeri crtež i 3D">
           </div>
         </div>
         <div class="panel" id="p-video"><video id="vid" src="assets/v4/setnja.mp4" poster="assets/v4/setnja_poster.jpg" muted loop playsinline preload="none"></video></div>
-        <div class="panel" id="p-mere"><div class="mere"><img src="assets/v4/mere.jpg" alt="List sa merama za majstora" loading="lazy"></div></div>
+        <div class="panel" id="p-mere"><div class="mere"><img src="assets/v4/mere-1600.webp" srcset="assets/v4/mere-800.webp 800w, assets/v4/mere-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="List sa merama za majstora" loading="lazy"></div></div>
       </div>
       <p class="cap" id="cap">Okreni ga sam, uđi na terasu, pogledaj odozgo.</p>
       <a class="plus-note" href="#izrada"><b>+ Plus</b><span>Kuhinju iz 3D-a možemo i da napravimo i montiramo.</span><svg><use href="#lu_arrow-right"/></svg></a>
@@ -109,10 +111,10 @@
   <section class="sec want-sec">
     <div class="head"><h2 class="rv">Šta želiš da vidiš?</h2></div>
     <div class="want">
-      <a class="w rv" href="https://wa.me/38166451465?text=Zdravo%2C%20zanima%20me%203D%20prikaz%20kuhinje." target="_blank" rel="noopener"><img src="assets/v3/k_small.jpg" alt="" loading="lazy"><span><b>Kuhinju</b><i><svg><use href="#lu_arrow-right"/></svg></i></span></a>
-      <a class="w rv" href="https://wa.me/38166451465?text=Zdravo%2C%20zanima%20me%203D%20prikaz%20stana." target="_blank" rel="noopener"><img src="assets/v3/living.jpg" alt="" loading="lazy"><span><b>Stan</b><i><svg><use href="#lu_arrow-right"/></svg></i></span></a>
-      <a class="w rv" href="https://wa.me/38166451465?text=Zdravo%2C%20zanima%20me%203D%20prikaz%20ku%C4%87e." target="_blank" rel="noopener"><img src="assets/v3/house.jpg" alt="" loading="lazy"><span><b>Kuću</b><i><svg><use href="#lu_arrow-right"/></svg></i></span></a>
-      <a class="w rv" href="https://wa.me/38166451465?text=Zdravo%2C%20zanima%20me%203D%20prikaz%20dvori%C5%A1ta." target="_blank" rel="noopener"><img src="assets/v3/garden.jpg" alt="" loading="lazy"><span><b>Dvorište</b><i><svg><use href="#lu_arrow-right"/></svg></i></span></a>
+      <a class="w rv" href="https://wa.me/38166451465?text=Zdravo%2C%20zanima%20me%203D%20prikaz%20kuhinje." target="_blank" rel="noopener"><img src="assets/v3/k_small-1600.webp" srcset="assets/v3/k_small-800.webp 800w, assets/v3/k_small-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="" loading="lazy"><span><b>Kuhinju</b><i><svg><use href="#lu_arrow-right"/></svg></i></span></a>
+      <a class="w rv" href="https://wa.me/38166451465?text=Zdravo%2C%20zanima%20me%203D%20prikaz%20stana." target="_blank" rel="noopener"><img src="assets/v3/living-1600.webp" srcset="assets/v3/living-800.webp 800w, assets/v3/living-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="" loading="lazy"><span><b>Stan</b><i><svg><use href="#lu_arrow-right"/></svg></i></span></a>
+      <a class="w rv" href="https://wa.me/38166451465?text=Zdravo%2C%20zanima%20me%203D%20prikaz%20ku%C4%87e." target="_blank" rel="noopener"><img src="assets/v3/house-1600.webp" srcset="assets/v3/house-800.webp 800w, assets/v3/house-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="" loading="lazy"><span><b>Kuću</b><i><svg><use href="#lu_arrow-right"/></svg></i></span></a>
+      <a class="w rv" href="https://wa.me/38166451465?text=Zdravo%2C%20zanima%20me%203D%20prikaz%20dvori%C5%A1ta." target="_blank" rel="noopener"><img src="assets/v3/garden-1600.webp" srcset="assets/v3/garden-800.webp 800w, assets/v3/garden-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="" loading="lazy"><span><b>Dvorište</b><i><svg><use href="#lu_arrow-right"/></svg></i></span></a>
     </div>
   </section>
 
@@ -120,12 +122,12 @@
   <section class="how" id="kako">
     <div class="how-head"><h2 class="rv">Kako radimo</h2><p class="sub rv">Od prvog poziva do gotove kuhinje.</p></div>
     <div class="steps">
-      <article class="sp"><div class="sp-img"><img src="assets/v6/javi.jpg" alt="" loading="lazy" style="object-position:22% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">01<i>/ 06</i></span><h3>Javiš se</h3><p>Pozoveš ili pošalješ poruku i kažeš šta planiraš. Ako imaš fotografije ili crtež, pošalji i njih.</p></div></article>
-      <article class="sp"><div class="sp-img"><img src="assets/v6/merenje.jpg" alt="" loading="lazy" style="object-position:72% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">02<i>/ 06</i></span><h3>Dolazimo na teren</h3><p>Izmerimo prostor, fotografišemo postojeće stanje i zapišemo sve što je bitno.</p><p class="tip">Imaš crtež arhitekte? Onda merenje preskačemo.</p></div></article>
-      <article class="sp"><div class="sp-img"><img src="assets/v6/modeliranje.jpg" alt="" loading="lazy" style="object-position:38% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">03<i>/ 06</i></span><h3>Pravimo 3D</h3><p>Ceo prostor u 3D, tačno po merama: raspored, nameštaj i svetlo.</p></div></article>
-      <article class="sp"><div class="sp-img"><img src="assets/v6/materijali.jpg" alt="" loading="lazy" style="object-position:60% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">04<i>/ 06</i></span><h3>Biramo boje i materijale</h3><p>Probamo više varijanti i menjamo dok ne bude baš kako želiš.</p></div></article>
-      <article class="sp"><div class="sp-img"><img src="assets/v6/pregled.jpg" alt="" loading="lazy" style="object-position:42% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">05<i>/ 06</i></span><h3>Gledaš i odobravaš</h3><p>Dobiješ slike, video šetnju, 3D model i mere za majstora.</p></div></article>
-      <article class="sp"><div class="sp-img"><img src="assets/v6/montaza.jpg" alt="" loading="lazy" style="object-position:66% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">06<i>/ 06</i></span><h3>Pravimo i montiramo</h3><p>Ako želiš, kuhinju i nameštaj pravimo mi, tačno po 3D-u, od medijapana i iverice.</p></div></article>
+      <article class="sp"><div class="sp-img"><img src="assets/v6/javi-1600.webp" srcset="assets/v6/javi-800.webp 800w, assets/v6/javi-1600.webp 1600w" sizes="100vw" decoding="async" alt="" loading="lazy" style="object-position:22% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">01<i>/ 06</i></span><h3>Javiš se</h3><p>Pozoveš ili pošalješ poruku i kažeš šta planiraš. Ako imaš fotografije ili crtež, pošalji i njih.</p></div></article>
+      <article class="sp"><div class="sp-img"><img src="assets/v6/merenje-1600.webp" srcset="assets/v6/merenje-800.webp 800w, assets/v6/merenje-1600.webp 1600w" sizes="100vw" decoding="async" alt="" loading="lazy" style="object-position:72% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">02<i>/ 06</i></span><h3>Dolazimo na teren</h3><p>Izmerimo prostor, fotografišemo postojeće stanje i zapišemo sve što je bitno.</p><p class="tip">Imaš crtež arhitekte? Onda merenje preskačemo.</p></div></article>
+      <article class="sp"><div class="sp-img"><img src="assets/v6/modeliranje-1600.webp" srcset="assets/v6/modeliranje-800.webp 800w, assets/v6/modeliranje-1600.webp 1600w" sizes="100vw" decoding="async" alt="" loading="lazy" style="object-position:38% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">03<i>/ 06</i></span><h3>Pravimo 3D</h3><p>Ceo prostor u 3D, tačno po merama: raspored, nameštaj i svetlo.</p></div></article>
+      <article class="sp"><div class="sp-img"><img src="assets/v6/materijali-1600.webp" srcset="assets/v6/materijali-800.webp 800w, assets/v6/materijali-1600.webp 1600w" sizes="100vw" decoding="async" alt="" loading="lazy" style="object-position:60% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">04<i>/ 06</i></span><h3>Biramo boje i materijale</h3><p>Probamo više varijanti i menjamo dok ne bude baš kako želiš.</p></div></article>
+      <article class="sp"><div class="sp-img"><img src="assets/v6/pregled-1600.webp" srcset="assets/v6/pregled-800.webp 800w, assets/v6/pregled-1600.webp 1600w" sizes="100vw" decoding="async" alt="" loading="lazy" style="object-position:42% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">05<i>/ 06</i></span><h3>Gledaš i odobravaš</h3><p>Dobiješ slike, video šetnju, 3D model i mere za majstora.</p></div></article>
+      <article class="sp"><div class="sp-img"><img src="assets/v6/montaza-1600.webp" srcset="assets/v6/montaza-800.webp 800w, assets/v6/montaza-1600.webp 1600w" sizes="100vw" decoding="async" alt="" loading="lazy" style="object-position:66% 50%"></div><div class="sp-shade"></div><div class="sp-t"><span class="sp-n">06<i>/ 06</i></span><h3>Pravimo i montiramo</h3><p>Ako želiš, kuhinju i nameštaj pravimo mi, tačno po 3D-u, od medijapana i iverice.</p></div></article>
     </div>
   </section>
 
@@ -136,7 +138,7 @@
       <p class="sub rv">Kad vidiš kako izgleda, mi to i napravimo. Kuhinje i nameštaj po meri, tačno po 3D-u.</p>
     </div>
     <div class="craft-grid">
-      <div class="craft-img rv"><img src="assets/v5/radionica.jpg" alt="Izrada nameštaja od medijapana i iverice u radionici" loading="lazy"></div>
+      <div class="craft-img rv"><img src="assets/v5/radionica-1600.webp" srcset="assets/v5/radionica-800.webp 800w, assets/v5/radionica-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="Izrada nameštaja od medijapana i iverice u radionici" loading="lazy"></div>
       <div class="craft-list rv">
         <ul>
           <li><svg><use href="#lu_box"/></svg>Kuhinje po meri</li>
@@ -152,15 +154,15 @@
     <div class="mat-note rv">
       <div class="mat-note-t"><h3>Materijali za izradu</h3><p>Ovo važi samo kad mi pravimo kuhinju ili nameštaj: radimo isključivo od medijapana i iverice. 3D prikaz radimo za bilo koji prostor, bez obzira na materijal.</p></div>
       <div class="mat-mini">
-        <figure><img src="assets/v5/mdf.jpg" alt="Uzorci lakiranih frontova od medijapana" loading="lazy"><figcaption><b>Medijapan</b>Lakirane fronte u bilo kojoj boji</figcaption></figure>
-        <figure><img src="assets/v5/iverica.jpg" alt="Ploče oplemenjene iverice" loading="lazy"><figcaption><b>Iverica</b>Desetine dekora drveta i boja</figcaption></figure>
+        <figure><img src="assets/v5/mdf-1600.webp" srcset="assets/v5/mdf-800.webp 800w, assets/v5/mdf-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="Uzorci lakiranih frontova od medijapana" loading="lazy"><figcaption><b>Medijapan</b>Lakirane fronte u bilo kojoj boji</figcaption></figure>
+        <figure><img src="assets/v5/iverica-1600.webp" srcset="assets/v5/iverica-800.webp 800w, assets/v5/iverica-1600.webp 1600w" sizes="(max-width:700px) 100vw, 60vw" decoding="async" alt="Ploče oplemenjene iverice" loading="lazy"><figcaption><b>Iverica</b>Desetine dekora drveta i boja</figcaption></figure>
       </div>
     </div>
   </section>
 
   <!-- KONTAKT -->
   <section class="final" id="kontakt">
-    <img class="final-bg" src="assets/v3/k_green.jpg" alt="" loading="lazy">
+    <img class="final-bg" src="assets/v3/k_green-1600.webp" srcset="assets/v3/k_green-800.webp 800w, assets/v3/k_green-1600.webp 1600w" sizes="100vw" decoding="async" alt="" loading="lazy">
     <div class="final-shade"></div>
     <div class="final-in">
       <h2 class="rv">Hajde da vidimo tvoj prostor.</h2>
@@ -196,8 +198,8 @@
   <div class="lb-bar"><h3 id="lb-t"></h3><a class="btn btn-acc" href="#kontakt" id="lb-cta"><svg><use href="#lu_message-circle"/></svg>Hoću ovako</a></div>
 </div>
 
-<script src="js/main.js?v=80"></script>
+<script src="js/main.js?v=90"></script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
-<script type="module" src="js/viewer.js?v=80"></script>
+<script type="module" src="js/viewer.js?v=90"></script>
 </body>
 </html>

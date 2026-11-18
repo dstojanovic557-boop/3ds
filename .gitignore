@@ -15,3 +15,8 @@ assets/v5/*
 !assets/v5/mdf.jpg
 !assets/v5/iverica.jpg
 !assets/v5/radionica.jpg
+# teške originalne verzije — sajt koristi WebP i lite model
+assets/model/vikendica.glb
+assets/**/*.jpg
+!assets/v3/hero.jpg
+!assets/v4/setnja_poster.jpg
