@@ -1,0 +1,17 @@
+.DS_Store
+css/style.css
+assets/img/
+assets/v2/*
+!assets/v2/par_3d.jpg
+!assets/v2/par_crtez.jpg
+assets/v3/blueprint.jpg
+assets/v4/crtez.jpg
+assets/v4/javi.jpg
+assets/v4/materijali.jpg
+assets/v4/merenje.jpg
+assets/v4/modeliranje.jpg
+assets/v4/pregled.jpg
+assets/v5/*
+!assets/v5/mdf.jpg
+!assets/v5/iverica.jpg
+!assets/v5/radionica.jpg
