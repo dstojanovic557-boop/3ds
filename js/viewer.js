@@ -1,7 +1,7 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import * as THREE from './vendor/three.module.js';
+import { OrbitControls } from './vendor/addons/OrbitControls.js';
+import { GLTFLoader } from './vendor/addons/GLTFLoader.js';
+import { RoomEnvironment } from './vendor/addons/RoomEnvironment.js';
 
 const box = document.getElementById('viewer'), canvas = document.getElementById('c3d');
 let started = false;
@@ -10,7 +10,9 @@ new IntersectionObserver(es => es.forEach(e => e.isIntersecting && go0()), { roo
 // model se učitava odmah posle stranice, ne čeka skrol
 if (document.readyState === 'complete') setTimeout(go0, 300); else addEventListener('load', () => setTimeout(go0, 300));
 
+function fail() { const l = document.getElementById('v-load'); l.querySelector('span').textContent = 'Model nije mogao da se učita. Osveži stranicu.'; }
 function init() {
+  try { if (!window.WebGLRenderingContext) return fail(); } catch (e) { return fail(); }
   const r = new THREE.WebGLRenderer({ canvas, antialias: true });
   r.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 800 ? 1.5 : 2));
   r.outputColorSpace = THREE.SRGBColorSpace; r.toneMapping = THREE.ACESFilmicToneMapping;
@@ -44,7 +46,7 @@ function init() {
     g.scene.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; if (o.material) o.material.side = THREE.DoubleSide; } });
     scene.add(g.scene); go('air', false);
     document.getElementById('v-load').classList.add('done');
-  }, x => { const t = x.total || 3385492; document.getElementById('v-bar').style.width = Math.min(100, x.loaded / t * 100) + '%'; });
+  }, x => { const t = x.total || 3385492; document.getElementById('v-bar').style.width = Math.min(100, x.loaded / t * 100) + '%'; }, () => fail());
   let vis = true;
   new IntersectionObserver(es => es.forEach(e => vis = e.isIntersecting)).observe(box);
   r.setAnimationLoop(() => { if (!vis) return; ctl.update(); r.render(scene, cam); });

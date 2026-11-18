@@ -1,22 +1,12 @@
 .DS_Store
 css/style.css
 assets/img/
-assets/v2/*
-!assets/v2/par_3d.jpg
-!assets/v2/par_crtez.jpg
-assets/v3/blueprint.jpg
-assets/v4/crtez.jpg
-assets/v4/javi.jpg
-assets/v4/materijali.jpg
-assets/v4/merenje.jpg
-assets/v4/modeliranje.jpg
-assets/v4/pregled.jpg
-assets/v5/*
-!assets/v5/mdf.jpg
-!assets/v5/iverica.jpg
-!assets/v5/radionica.jpg
-# teške originalne verzije — sajt koristi WebP i lite model
 assets/model/vikendica.glb
 assets/**/*.jpg
+!assets/**/*-800.jpg
+!assets/**/*-1600.jpg
 !assets/v3/hero.jpg
 !assets/v4/setnja_poster.jpg
+!assets/v4/model-poster.jpg
+assets/v5/kuhinja_gotova*
+assets/v3/blueprint*
